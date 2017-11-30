@@ -1,0 +1,60 @@
+<% include ../partials/header %>
+
+        <!--places is coming from app.js where ref = 2 -->
+    <div class ="container">
+        <div class = "row">
+            <div class ="col-md-12">
+                <div class= "thumbnail">
+                    <img class= "img-responsive" src = "<%= places.url %>">
+                    <div class = "caption-full">
+                        
+                        <h4><strong>Created by: <%= places.author.username %></strong></h4>
+                        <h4><a><%= places.name %></a></h4>
+                        <p>Located: <%= places.description %> </p>
+                        <a href = "<%= places.direction %>" target="_blank" >Take Me to <%= places.name %></a>
+                        <% if(currentUser && places.author.id.equals(currentUser._id)){ %>
+                            <a class="btn btn-xs btn-warning specify" href = "<%= url %>/<%= places._id %>/edit">Edit!!</a>
+                            <form class = "dform" action = "<%= url %>/<%= places._id %>?_method=delete" method = "post" >
+                                <button class="btn btn-xs btn-danger specify">Delete!!</button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
+                <div class= "well">
+                    <form  action = "<%= url %>/<%= places._id %>/comments" method = "POST">
+                        <div class = "form-group">
+                            <input class = "form-control" type = "text" placeholder = "text" name = "text">
+                        </div>
+                        <div class = "text-right form-group">
+                            <input  class = "btn btn-primary" type= "submit">
+                        </div>
+                    </form> 
+                    <!--<div class = "text-right">-->
+                    <!--    <a href = "/places/<%= places._id %>/comments/new" class = "btn btn-success">Add Comment</a>-->
+                    <!--</div>-->
+                    <hr>
+                    <% places.comments.forEach(function(comment){ %>
+                    <div class = "row">
+                        <div class= "col-md-12">
+                            <strong><%= comment.author.username %></strong>
+                            <span class= "pull-right"><em><%= comment.created.toDateString() %></em></span>
+                            <p> <%= comment.text %> </p>
+                           
+                            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                               <a class= "btn btn-xs btn-warning specify" href = "<%= url %>/<%= places._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                                <form class = "dform" action = "<%= url %>/<%=places._id%>/comments/<%=comment._id%>?_method=delete" method = "post">
+                                    <button class = "btn btn-xs btn-danger specify">Delete!!</button>
+                                </form>
+                            <% } %>
+                            <hr>
+                        </div>
+                    </div>
+
+                    <% }) %>
+                    
+                </div>
+            </div>
+        </div>
+    </div>     
+        
+<% include ../partials/footer %>

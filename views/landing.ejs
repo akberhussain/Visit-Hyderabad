@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Hyderabad</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+  <style type="text/css">
+    
+    .content{
+		padding-top: 25%;
+		text-align: center;
+		color: white
+	}
+	h1{
+		font-size: 60px;
+	}
+	body{
+		background-image: url("http://static.panoramio.com/photos/large/41735754.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+    font-family: comic sans MS;
+	}
+  html{
+    height: 100%;
+  }
+  hr{
+    width: 400px; 
+  }
+    
+  .collapse.navbar-collapse{
+   opacity : 50%;
+  }  
+</style>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+  </head>
+  <body id = "sbody">
+
+ <!--<img id = "image" src="">-->
+
+ <div class = "container">
+  	<div class = "row">
+  	  <div class = "col-lg-12">
+  		<div  class= "content">
+  			<h1>Hyderabad Pakistan</h1>
+  			<h3>Visit Your City And Explore Everything In It</h3>
+  			
+  			<hr>
+  			<a class = "btn btn-default btn-lg" href = "/home"> <i class = "fa fa-paw"></i>Get Started!</a>
+  		</div>
+  	  </div>
+  	</div>	
+  </div>
+
+<script type="text/javascript">
+	var arr= [
+
+		"https://c2.staticflickr.com/8/7751/18270688811_760fd066cc_z.jpg",
+		"http://www.groupin.pk/blog/wp-content/uploads/2012/01/407088362_7692fdc401_b.jpg",
+		"http://www.apnahyderabad.com/hyderabad/images/mvc-535F.jpg",
+		"http://static.panoramio.com/photos/large/41735754.jpg",
+		
+
+	];
+		var i = 0;
+	function screensavers(){
+		if(i==4){
+		i=0;
+	}
+	
+	document.getElementById("sbody").style.backgroundImage = "url('"+arr[i]+"')";
+	i++;
+
+	}
+	
+	// screensaver();
+	setInterval(screensavers, 2500);
+
+</script>
+<% include partials/footer %>

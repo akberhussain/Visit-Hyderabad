@@ -1,0 +1,222 @@
+<html>
+  <head>
+    <title>Hyderabad</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+  
+  </head>
+  <body>
+<!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>    -->
+
+<!--<script type="text/javascript" src = "jquery-3.2.0.js"></script>-->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <nav class = "navbar navbar-default">
+    <div class = "container-fluid">
+        <div class = "navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bstarget" aria-expanded="false">
+        		<span class="sr-only">Toggle navigation</span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+    		</button>
+          
+            <a class= "navbar-brand" href="/">Hyderabad</a>
+        </div>
+        <div class = "collapse navbar-collapse">
+          
+          <div class = "nav navbar-nav">
+          	<li><a href="/home">Home</a></li>
+          	<li><a href="">About</a></li>
+          	<li><a href="/home/new">Add Your Business</a></li>
+          	<li><a href="https://www.facebook.com/akberlaghari" target = "_blank">Our Developers</a></li>
+          	
+          	<% if(currentUser&&(currentUser.id=="5959ed7cb984c10011e28190")){ %>
+          	
+          	        <li><a href="/requests">Requests <span class = "badge"><%= count %></span></a></li>
+          	
+          	<% } %>
+    	
+    		  </div>
+    		    <form class="navbar-form navbar-left" method = "post" action = "/results">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name = "search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class = "nav navbar-nav navbar-right">
+             <% if(!currentUser){ %>
+                  <li><a href="/login">Login</a></li>
+                  <li><a href="/register">Sign Up</a></li>
+                  <% } else { %>
+                    <li><a href="#">Signed in as <%= currentUser.name %></a></li>
+                    <li><a href="/logout">Logout</a></li>
+                    
+                <% } %>           
+            </ul>
+        </div>
+    </div>
+  </nav>
+  
+    <div class = "container">
+      <% if (error && error.length > 0){ %>
+        <div class = "alert alert-danger">
+          <%= error %>
+        </div>
+      <% } %>
+      <% if (success && success.length > 0){ %>      
+        <div class = "alert alert-success">
+          <%= success %>
+        </div>
+      <% } %>
+    </div>
+
+
+
+
+        <!-- Body -->
+
+
+<div class = "container">
+            <header class = "jumbotron">
+                <div class = "container">     
+                    <h1>Welcome to Hyderabad</h1>
+                    <p>A City of Peace And Beautiful Enviornment</p>
+                    
+                </div>
+            </header> 
+
+    <div class ="row text-center" style= "display: flex; flex-wrap: wrap">
+
+        <!-- 1 -->
+
+        <div class ="col-md-3 col-sm-6">
+            <div class = "thumbnail spthumbnail">
+                <img src = "http://www.lalqila.com/images/media/LalQila%20Hyderabad%20Pics/Main%20View%203d.jpg">
+                    <div class="caption">
+                        <h4> Restaurants</h4>
+                    </div>
+                <a href = "/restaurants" class = "btn btn-primary">View All</a>
+            </div>
+        </div>
+        
+                <!-- 2 -->
+        
+        <div class ="col-md-3 col-sm-6">
+            <div class = "thumbnail spthumbnail">
+                <img src = "http://aff.bstatic.com/images/hotel/max500/675/67518673.jpg">
+                    <div class="caption">
+                        <h4>Guest Houses</h4>
+                    </div>
+                <a href = "/campgrounds" class = "btn btn-primary">View All</a>
+            </div>
+        </div>
+        
+                <!-- 3 -->        
+        
+        <div class ="col-md-3 col-sm-6">
+            <div class = "thumbnail spthumbnail">
+                <img src = "http://www.apnahyderabad.com/apnaimages/city/inside_eid_gah.jpg">
+                    <div class="caption">
+                        <h4>Historical Places</h4>
+                    </div>
+                <a href = "historicalPlaces" class = "btn btn-primary">View All</a>
+            </div>
+        </div>
+        
+                <!-- 4 -->        
+        
+        <div class ="col-md-3 col-sm-6">
+            <div class = "thumbnail spthumbnail">
+                <img src = "http://www.apsachyd.edu.pk/images/slider/image1.jpg">
+                    <div class="caption">
+                        <h4>Schools Colleges And Universities</h4>
+                    </div>
+                <a href = "/institutes" class = "btn btn-primary">View All</a>
+            </div>
+        </div>
+        
+                <!-- 5 -->        
+        
+        <div class ="col-md-3 col-sm-6">
+            <div class = "thumbnail spthumbnail">
+                <img src = "http://testing.prcs.org.pk/wp-content/uploads/2017/03/logo.png">
+                    <div class="caption">
+                        <h4>Hospitals</h4>
+                    </div>
+                <a href = "/hospitals" class = "btn btn-primary">View All</a>
+            </div>
+        </div>
+        
+                <!-- 6 -->        
+        
+        <div class ="col-md-3 col-sm-6">
+            <div class = "thumbnail spthumbnail">
+                <img src = "http://apnahyderabad.info/wp-content/uploads/2016/07/1111.jpg">
+                    <div class="caption">
+                        <h4>Shopping Malls</h4>
+                    </div>
+                <a href = "/shoppingMalls" class = "btn btn-primary">View All</a>
+            </div>
+        </div>
+        
+                <!-- 7 -->
+        
+        <div class ="col-md-3 col-sm-6">
+            <div class = "thumbnail spthumbnail">
+                <img src = "https://media.treehugger.com/assets/images/2013/12/grocery_store.png.662x0_q70_crop-scale.png">
+                    <div class="caption">
+                        <h4>Super Markets</h4>
+                    </div>
+                <a href = "/superMarkets" class = "btn btn-primary">View All</a>
+            </div>
+        </div>
+        
+                <!-- 8 -->
+        
+        <div class ="col-md-3 col-sm-6">
+            <div class = "thumbnail spthumbnail">
+                <img src = "https://s-media-cache-ak0.pinimg.com/originals/41/54/73/41547385a248f9590deb8da3f6472ac7.jpg">
+                    <div class="caption">
+                        <h4>Shopping Centers</h4>
+                    </div>
+                <a href = "/shoppingCenters" class = "btn btn-primary">View All</a>
+            </div>
+        </div>
+        
+                <!-- 9 -->
+                
+        <div class ="col-md-3 col-sm-6">
+            <div class = "thumbnail spthumbnail">
+                <img src = "https://image.slidesharecdn.com/stuartjoy-bata-121014040801-phpapp02/95/batacorporate-profile-7-728.jpg?cb=1350187789">
+                    <div class="caption">
+                        <h4>Bata Stores</h4>
+                    </div>
+                <a href = "/batas" class = "btn btn-primary">View All</a>
+            </div>
+        </div>
+                
+                <!-- 10 -->
+                
+        <div class ="col-md-3 col-sm-6">
+            <div class = "thumbnail spthumbnail">
+                <img src = "http://apm.com.pk/wp-content/uploads/2015/07/373.jpg">
+                    <div class="caption">
+                        <h4>Servis Shoes</h4>
+                    </div>
+                <a href = "/servises" class = "btn btn-primary">View All</a>
+            </div>
+        </div>
+                
+        
+    </div>    
+</div>
+
+<% include partials/footer %>

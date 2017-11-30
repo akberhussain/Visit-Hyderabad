@@ -1,0 +1,42 @@
+<% include partials/header %>
+
+        
+    
+<h1>Requests Page</h1>
+    <div class = "container">
+        <table class = "table table-striped table-bordered table-hover table-responsive box-shadow-table">
+            <thead class = "thead-inverse">
+                <tr>
+                    <th>Temp</th>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Address</th>
+                    <th>Directions</th>
+                    <th>Varify</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% requests.forEach(function(request){ %>
+                <tr>
+                    <form action = "<%= request.catagory %>" method = "POST">
+                        <input type = "hidden" name = "id" value = "<%= request.author.id %>">
+                        <td><a class = "btn btn-xs btn-primary specify" href = "/requests/<%= request._id %>" target = "_blank">Show</a></td>
+                        <td><input type = "text" name = "username" value= "<%= request.author.username %>" ></td>
+                        <td><input type = "text" name = "name" value = "<%= request.name %>"></td>
+                        <td><input type = "text" name = "url" value = "<%= request.url %>"></td>
+                        <td><input type = "text" name = "description" value = "<%= request.description %>"></td>
+                        <td><input type = "text" name = "direction" value = "<%= request.direction %>"></td>
+                        <td><input class = "btn btn-success specify" type = "submit" value = "Approve">
+                    </form>
+                    <form class = "dform" action = "/requests/<%=request._id%>?_method=delete" method = "post">
+                        <button class = "btn btn-danger specify">Delete!!</button>
+                    </form>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>    
+
+<% include partials/footer %>    

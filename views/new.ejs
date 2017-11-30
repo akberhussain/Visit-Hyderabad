@@ -1,0 +1,60 @@
+<% include ./partials/header %>
+
+<div class = "container">
+    <div class  = "container">
+    <header class = "jumbotron">
+        <div class = "container">     
+            <h1>Welcome to Hyderabad</h1>
+            <p>Add Place that you want people to see on this website</p>
+        </div>
+    </header>
+    </div>
+    
+    <div class = "row">
+                
+        <!--Submitting Form data to "/superMarkets" as a Post Req through Form-->
+                
+        <div  style = "width: 30%; margin: 0 auto">
+            <form action = "/requests" method = "POST">
+            <div class = "form-group">
+                <input class = "form-control" type = "text" placeholder = "Name" name = "name">
+            </div>
+            <div class = "form-group">
+                <input class = "form-control" type = "text" placeholder = "image url" name = "url">
+            </div>
+             <div class = "form-group">
+                <input class = "form-control" type = "text" placeholder = "Address" name = "description">
+            </div>
+             <div class = "form-group">
+                <input class = "form-control" type = "text" placeholder = "direction link" name = "direction">
+            </div>            
+            <div class = "form-group">
+                <div id="mainselection">
+                  <select name = "catagory">
+                    <option name = "catagory" value = "/historicalPlaces">Select Catagory</option>
+                    <option name = "catagory" value = "/restaurants">Restaurant</option>
+                    <option value = "/campgrounds">Guest House</option>
+                    <option value = "/historicalPlaces">Historical Place</option>
+                    <option value = "/institutes">Institute</option>
+                    <option value = "/hospitals">Hospital</option>
+                    <option value = "/shoppingMalls">Shopping Mall</option>
+                    <option value = "/superMarkets">Super Market</option>
+                    <option value = "/shoppingCenters">Shopping Center</option>
+                    <option value = "/batas">Bata Store</option>
+                    <option value = "/servises">Servis Store</option>
+                    
+                  </select>
+                </div>
+            </div>
+            <div class = "form-group">
+                <input class = "btn btn-lg btn-primary btn-block" type= "submit">
+            </div>
+            
+        </form>    
+        </div>
+        
+    </div>
+</div>
+
+<% include ./partials/footer %>
+

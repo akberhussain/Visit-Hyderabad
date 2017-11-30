@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<div class = "container">
+    <header class = "jumbotron">
+        <div class = "container">     
+            <h1>Welcome to Hyderabad</h1>
+            <p>Here are all the Results from different catagories</p>
+        </div>
+    </header>
+    <div class ="row text-center" style= "display: flex; flex-wrap: wrap">
+            <% results.forEach(function(result){ %>
+                <div class ="col-md-3 col-sm-6">
+                    <div class = "thumbnail spthumbnail">
+                        <img src = "<%= result.url %>">
+                    <div class="caption">
+                        <h4><%= result.name %></h4>
+                    </div>
+                    <a href = "/campgrounds/<%= result._id %>" class = "btn btn-primary">More Info</a>
+                    </div>
+                </div>
+            <% }); %>
+    </div>
+</div>
+
+<% include ./partials/footer %>
